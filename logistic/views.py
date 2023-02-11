@@ -9,16 +9,13 @@ from logistic.serializers import ProductSerializer, StockSerializer
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    filterset_fields = ['title', 'description']
+    search_fields = ['title', 'description']  # изменил название с filterset_fields для работы поиска.
 
 
 class StockViewSet(ModelViewSet):
     queryset = Stock.objects.all()
     serializer_class = StockSerializer
-    filterset_fields = ['address']
+    filterset_fields = ['address', 'products']  # добавил поле products, чтобы работал поиск склада с продуктом
     filter_backends = [DjangoFilterBackend, SearchFilter]
     search_fields = ['address', 'product']
-
-
-#  не работает фильтрация и поиск.
 

@@ -38,7 +38,7 @@ class StockSerializer(serializers.ModelSerializer):
             )
         return stock
 
-    def update(self, instance, validated_data):  # не работает.
+    def update(self, instance, validated_data):
         # достаем связанные данные для других таблиц
         positions = validated_data.pop('positions')
 
@@ -46,16 +46,16 @@ class StockSerializer(serializers.ModelSerializer):
         stock = super().update(instance, validated_data)
 
         for position in positions:
+            product = position.get('product')
+            quantity = position.get('quantity')
+            price = position.get('price')
             StockProduct.objects.update_or_create(
                 stock=stock,
-                quantity=position.get('quantity'),
-                price=position.get('price'),
-                defaults={
-                    'product': position.get('product'),
-                    'stock': stock,
-                    'quantity': position.get('quantity'),
-                    'price': position.get('price')
-                }
+                product=product,
+                defaults={'quantity': quantity, 'price': price}
             )
 
         return stock
+
+# в методе update_or_create сперва указываются переменные, которые создаем в случае отсутствия, а в defaults -
+# - то, что планируем обновлять.

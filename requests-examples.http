@@ -12,6 +12,38 @@ Content-Type: application/json
 }
 
 ###
+# создание продукта
+POST {{baseUrl}}/products/
+Content-Type: application/json
+
+{
+  "title": "Картофель",
+  "description": "Лучший картофель на рынке"
+}
+
+###
+
+# создание продукта
+POST {{baseUrl}}/products/
+Content-Type: application/json
+
+{
+  "title": "Лук",
+  "description": "Лучший лук на рынке"
+}
+
+###
+
+# создание продукта
+POST {{baseUrl}}/products/
+Content-Type: application/json
+
+{
+  "title": "тухлые котлетки",
+  "description": "Лучшие тухлые котлетки на рынке"
+}
+
+###
 
 # получение продуктов
 GET {{baseUrl}}/products/
@@ -30,7 +62,7 @@ Content-Type: application/json
 ###
 
 # удаление продукта
-DELETE {{baseUrl}}/products/1/
+DELETE {{baseUrl}}/products/4/
 Content-Type: application/json
 
 ###
@@ -63,8 +95,30 @@ Content-Type: application/json
 
 ###
 
+# создание склада
+POST {{baseUrl}}/stocks/
+Content-Type: application/json
+
+{
+  "address": "екатеринбург",
+  "positions": [
+    {
+      "product": 1,
+      "quantity": 1000,
+      "price": 100
+    },
+    {
+      "product": 2,
+      "quantity": 30,
+      "price": 3500
+    }
+  ]
+}
+
+###
+
 # обновляем записи на складе
-PATCH {{baseUrl}}/stocks/4/
+PATCH {{baseUrl}}/stocks/1/
 Content-Type: application/json
 
 {
@@ -77,7 +131,7 @@ Content-Type: application/json
     {
       "product": 3,
       "quantity": 243,
-      "price": 145
+      "price": 150
     }
   ]
 }
@@ -90,6 +144,7 @@ Content-Type: application/json
 
 ###
 
+# все склады
 GET {{baseUrl}}/stocks/
 Content-Type: application/json
 
