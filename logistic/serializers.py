@@ -57,5 +57,6 @@ class StockSerializer(serializers.ModelSerializer):
 
         return stock
 
-# в методе update_or_create сперва указываются переменные, которые создаем в случае отсутствия, а в defaults -
+# в методе update_or_create сперва указываются переменные,
+# которые создаем в случае отсутствия, а в defaults -
 # - то, что планируем обновлять.
