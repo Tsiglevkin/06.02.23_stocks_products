@@ -1,7 +1,7 @@
 name: Test stock_products
 on:
   push:
-    branches [ main ]
+    branches: [ main ]
 
 jobs:
   tests:
