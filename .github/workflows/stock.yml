@@ -64,4 +64,4 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
-          scripts: expect /home/stepan/06.02.23_stocks_products/deploy.exp
+          script: expect /home/stepan/06.02.23_stocks_products/deploy.exp
