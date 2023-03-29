@@ -42,7 +42,7 @@ jobs:
       - name: установка зависимостей
         run: pip install -r requirements.txt
 
-      - name: Литинг
+      - name: Линтинг
         run: flake8 logistic --exclude logistic/migrations
 
       - name: Тестирование
