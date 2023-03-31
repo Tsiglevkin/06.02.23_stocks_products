@@ -1,5 +1,11 @@
 # Склады и товары
 
+ 
+## Список команд для запуска сбора и запуска контейнера:
+* docker build -t=stocks .
+* docker run -it -d -p 8000:8888 stocks
+* curl localhost:8000/hello/
+
 ## Техническая задача: реализовать CRUD-логику для продуктов и складов, используя Django Rest Framework.
 
 **CRUD** – аббревиатура для Create-Read-Update-Delete. Ей обозначают логику для операций создания-чтения-обновления-удаления сущностей. Подробнее: https://ru.wikipedia.org/wiki/CRUD
