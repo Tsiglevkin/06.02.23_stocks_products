@@ -1,6 +1,8 @@
+from django.http import HttpResponse
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter
 from rest_framework.viewsets import ModelViewSet
+
 
 from logistic.models import Product, Stock
 from logistic.serializers import ProductSerializer, StockSerializer
@@ -18,3 +20,7 @@ class StockViewSet(ModelViewSet):
     filterset_fields = ['address', 'products']
     filter_backends = [DjangoFilterBackend, SearchFilter]
     search_fields = ['address', 'product']
+
+
+def hello(request):
+    return HttpResponse('OK, status 200')
